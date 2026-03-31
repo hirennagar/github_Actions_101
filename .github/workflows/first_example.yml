@@ -15,3 +15,5 @@ jobs:
 
             name: Read the file
             runs: cat README.md
+            name: Generate ASCII artwork
+            run: cowsay -f dragon "Here the dragon comes" >> dragon.txt
