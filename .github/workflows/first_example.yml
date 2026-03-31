@@ -1,7 +1,7 @@
 name: My First workflow
-name: My First Workflow
+name: First Workflow
 
-on: [push]
+on: push
 
 jobs:
   First_job:
@@ -17,14 +17,12 @@ jobs:
       - name: List all files
         run: ls
 
-      - name: Read the file
+      - name: Read README file
         run: cat README.md
 
-      - name: Install cowsay
-        run: sudo apt-get install cowsay -y
-
       - name: Generate ASCII artwork
-        run: cowsay -f dragon "Here the dragon comes" > dragon.txt
-
-      - name: Show dragon file
-        run: cat dragon.txt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cowsay
+          cowsay -f dragon "Here the dragon comes" >> dragon.txt
+          cat dragon.txt
